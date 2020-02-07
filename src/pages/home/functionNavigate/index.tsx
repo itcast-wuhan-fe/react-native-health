@@ -4,6 +4,7 @@ import reactNavigationHelper from "../../../utils/reactNavigationHelper";
 import getScreenWidth from "../../../utils/getScreenWidth";
 import CommonIcon from "../../../components/CommonIcon";
 import CommonColors from "../../../utils/CommonColors";
+import commonToast from "../../../utils/commonToast";
 
 const dataList = [
   {
@@ -26,25 +27,33 @@ const dataList = [
     title: "健康评估",
     subTitle: "了解自身健康",
     image: "59660",
-    onTap: null
+    onTap: () => {
+      commonToast.show("该功能暂未实现，敬请期待！");
+    }
   },
   {
     title: "健康干预",
     subTitle: "采集状况",
     image: "59661",
-    onTap: null
+    onTap: () => {
+      commonToast.show("该功能暂未实现，敬请期待！");
+    }
   },
   {
     title: "健康档案",
     subTitle: "掌上查询",
     image: "59655",
-    onTap: null
+    onTap: () => {
+      commonToast.show("该功能暂未实现，敬请期待！");
+    }
   },
   {
     title: "健康资讯",
     subTitle: "资讯一览",
     image: "59663",
-    onTap: null
+    onTap: () => {
+      commonToast.show("该功能暂未实现，敬请期待！");
+    }
   }
 ];
 

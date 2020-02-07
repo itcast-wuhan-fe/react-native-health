@@ -1,8 +1,10 @@
 const constant = {
   healthIcon: "health-icon",
-  reservationNoticeUri: "http://47.92.145.208/pages/orderNotice.html",
-  reportUri: "http://47.92.145.208/pages/health-report-detail.html",
-  baseUri: "http://dev.itcastor.com:3332"
+  reservationNoticeUri:
+    "http://mobile-health-java.itheima.net/pages/orderNotice.html",
+  reportUri:
+    "http://mobile-health-java.itheima.net/pages/health-report-detail.html",
+  baseUri: "http://api-health-web.itheima.net"
 };
 
 export default constant;

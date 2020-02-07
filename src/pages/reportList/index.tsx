@@ -55,7 +55,8 @@ const ReportListPage: SFC = () => {
         return (
           <TouchableOpacity
             onPress={() => {
-              Linking.openURL(`${constant.reportUri}?id=${item.id}`);
+              // Linking.openURL(`${constant.reportUri}?id=${item.id}`);
+              commonToast.show("该功能暂未实现，敬请期待！");
             }}
           >
             <View style={style.item}>
