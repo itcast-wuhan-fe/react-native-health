@@ -16,7 +16,7 @@ commonHttp.interceptors.response.use(
   },
   function(error) {
     if (error.response.status === 401) {
-      commonToast.show("登陆过期");
+      commonToast.show("登录过期");
       reactNavigationHelper.navigate("Login");
     }
     // Any status codes that falls outside the range of 2xx cause this function to trigger

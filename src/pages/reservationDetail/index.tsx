@@ -8,7 +8,6 @@ import Title from "./Title";
 import constant from "../../constant";
 import CommonFloatButton from "../../components/CommonFloatButton";
 import reactNavigationHelper from "../../utils/reactNavigationHelper";
-import { async } from "q";
 import commonHttp from "../../utils/commonHttp";
 type Props = {
   navigation: NavigationStackProp<any, { reservationDetailId: string }>;
@@ -40,7 +39,8 @@ const ReservationDetailPage: SFC<Props> = ({ navigation }) => {
           title={"预约须知"}
           iconName={"59668"}
           onPress={() => {
-            Linking.openURL(constant.reservationNoticeUri);
+            reactNavigationHelper.navigate("Notice");
+            // Linking.openURL(constant.reservationNoticeUri);
           }}
         ></Title>
         <Title title={"套餐详情"} iconName={"59652"}></Title>

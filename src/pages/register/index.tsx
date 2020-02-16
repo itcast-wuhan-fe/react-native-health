@@ -73,7 +73,7 @@ const RegisterPage = ({ navigation }) => {
         <Text>
           <Text>已有账号</Text>
           <Text style={style.colorText} onPress={goLogin}>
-            去登陆～
+            去登录～
           </Text>
         </Text>
       </View>

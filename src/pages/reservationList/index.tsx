@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   View,
   StyleSheet,
@@ -14,7 +14,6 @@ import { Button, Divider } from "react-native-elements";
 import CommonColors from "../../utils/CommonColors";
 import CommonTag from "../../components/CommonTag";
 import reactNavigationHelper from "../../utils/reactNavigationHelper";
-import { async } from "q";
 import commonHttp from "../../utils/commonHttp";
 
 //下拉下单选择项
@@ -30,6 +29,7 @@ const ReservationListPage = () => {
   const [iconName, setIconName] = useState(IconNames.down);
   const [sexIndex, setSexIndex] = useState(0);
   const [dataList, setDataList] = useState([]);
+  const dropDownRef = useRef(null);
 
   const getData = async () => {
     const uri = `/reservationList${
@@ -43,6 +43,7 @@ const ReservationListPage = () => {
       <Text style={style.text}>性别</Text>
       <Divider style={style.divider}></Divider>
       <ModalDropDown
+        ref={dropDownRef}
         onDropdownWillShow={() => {
           setIconName(IconNames.up);
           return true;
@@ -65,14 +66,21 @@ const ReservationListPage = () => {
         dropdownTextStyle={{ fontSize: 14 }}
         textStyle={{ fontSize: 16, color: CommonColors.gray }}
       ></ModalDropDown>
-      <Ionicons
-        style={{
-          marginHorizontal: 6
+      <TouchableOpacity
+        onPress={() => {
+          setIconName(IconNames.up);
+          dropDownRef.current && dropDownRef.current.show();
         }}
-        name={iconName}
-        size={16}
-        color={CommonColors.gray}
-      ></Ionicons>
+      >
+        <Ionicons
+          style={{
+            marginHorizontal: 6
+          }}
+          name={iconName}
+          size={16}
+          color={CommonColors.gray}
+        ></Ionicons>
+      </TouchableOpacity>
     </View>
   );
 
@@ -197,6 +205,7 @@ const style = StyleSheet.create({
   button: { paddingVertical: 4, paddingHorizontal: 10 },
   buttonText: { fontSize: 10 }
 });
+
 ReservationListPage.navigationOptions = {
   title: "体检预约"
 };

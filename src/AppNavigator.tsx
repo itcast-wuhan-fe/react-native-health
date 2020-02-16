@@ -9,6 +9,7 @@ import ReservationSubmitPage from "./pages/reservationSubmit";
 import ReportListPage from "./pages/reportList";
 import RegisterPage from "./pages/register";
 import SettingPage from "./pages/setting";
+import noticePage from "./pages/notice/index";
 
 const AppNavigator = createStackNavigator(
   {
@@ -19,10 +20,12 @@ const AppNavigator = createStackNavigator(
     ReservationDetail: ReservationDetailPage,
     ReservationList: ReservationListPage,
     ReservationSubmit: ReservationSubmitPage,
-    ReportList: ReportListPage
+    ReportList: ReportListPage,
+    Notice: noticePage
   },
   {
     initialRouteName: "Home",
+    // initialRouteName: "Notice",
     defaultNavigationOptions: {
       headerTintColor: CommonColors.primary
     }

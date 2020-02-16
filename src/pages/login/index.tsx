@@ -25,14 +25,14 @@ const LoginPage = ({ navigation }) => {
 
       auth.setToken(res.data.accessToken);
       reactNavigationHelper.pop();
-      commonToast.show("登陆成功");
+      commonToast.show("登录成功");
     } catch (error) {
       commonToast.show(error.response.data);
     }
   };
   return (
     <ScrollView contentContainerStyle={style.wrapper}>
-      <Text style={style.title}>账号密码登陆</Text>
+      <Text style={style.title}>账号密码登录</Text>
       <CommonFormItem
         label={"账号"}
         textInputPlaceholder={"请输入邮箱"}
@@ -53,7 +53,7 @@ const LoginPage = ({ navigation }) => {
           end: { x: 1, y: 0.5 }
         }}
         buttonStyle={style.button}
-        title={"登陆"}
+        title={"登录"}
         onPress={() => {
           submit();
         }}
@@ -98,6 +98,6 @@ const style = StyleSheet.create({
 
 //@ts-ignore
 LoginPage.navigationOptions = {
-  title: "登陆"
+  title: "登录"
 };
 export default LoginPage;

@@ -1,6 +1,7 @@
 import React, { SFC, useState, useContext, useEffect } from "react";
 
-import { View, ScrollView, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import CommonFloatButton from "../../components/CommonFloatButton";
 import ReservationHeader from "../../components/ReservationHeader";
 import CommonColors from "../../../src/utils/CommonColors";
@@ -13,7 +14,6 @@ import { Ionicons } from "@expo/vector-icons";
 import authContext from "../../context/auth";
 import authHelper from "../../utils/authHelper";
 import commonHttp from "../../utils/commonHttp";
-import { async } from "q";
 import commonToast from "../../utils/commonToast";
 import reactNavigationHelper from "../../utils/reactNavigationHelper";
 const ReservationSubmitPage = ({ navigation }) => {
@@ -55,12 +55,15 @@ const ReservationSubmitPage = ({ navigation }) => {
   const submit = async () => {
     if (name === "") {
       commonToast.show("体检人不能为空");
+      return;
     }
     if (phoneNumber === "") {
       commonToast.show("手机号不能为空");
+      return;
     }
     if (idNumber === "") {
       commonToast.show("身份证不能为空");
+      return;
     }
     const uri = "/reservationSubmit";
 
@@ -92,7 +95,7 @@ const ReservationSubmitPage = ({ navigation }) => {
   };
   return (
     <View style={style.wrapper}>
-      <ScrollView>
+      <KeyboardAwareScrollView enableOnAndroid={true}>
         <ReservationHeader data={data}></ReservationHeader>
         <View style={style.content}>
           <CommonTitle title={"体检人信息"}></CommonTitle>
@@ -120,7 +123,6 @@ const ReservationSubmitPage = ({ navigation }) => {
             textInputOnChangeText={setIdNumber}
             textInputPlaceholder={"请输入身份证号"}
           ></CommonFormItem>
-
           <CommonFormRadio
             label={"婚否"}
             value={marriage}
@@ -152,7 +154,8 @@ const ReservationSubmitPage = ({ navigation }) => {
             setShowDatePicker(false);
           }}
         ></DateTimePicker>
-      </ScrollView>
+      </KeyboardAwareScrollView>
+
       <CommonFloatButton title={"提交"} onPress={submit}></CommonFloatButton>
     </View>
   );

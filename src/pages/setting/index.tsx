@@ -28,10 +28,10 @@ const SettingPage = () => {
             end: { x: 1, y: 0.5 }
           }}
           buttonStyle={style.button}
-          title={"退出登陆"}
+          title={"退出登录"}
           onPress={() => {
             auth.setToken("");
-            commonToast.show("已经成功退出登陆");
+            commonToast.show("已经成功退出登录");
           }}
         ></Button>
       </ScrollView>
@@ -39,7 +39,7 @@ const SettingPage = () => {
   }
   return (
     <ScrollView style={style.wrapper}>
-      <Text style={style.title}>登陆后使用完整 APP 功能</Text>
+      <Text style={style.title}>登录后使用完整 APP 功能</Text>
       <Button
         linearGradientProps={{
           colors: [CommonColors.gradientStart, CommonColors.gradientEnd],
@@ -47,7 +47,7 @@ const SettingPage = () => {
           end: { x: 1, y: 0.5 }
         }}
         buttonStyle={style.button}
-        title={"去登陆"}
+        title={"去登录"}
         onPress={() => {
           reactNavigationHelper.navigate("Login");
         }}
